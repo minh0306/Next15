@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Men clothes",
+    "img": "/categories/menClothe.jpg"
+  },
+  {
+    "name": "Mobile & Gadgets",
+    "img": "/categories/mobile.jpg"
+  },
+  {
+    "name": "Electronics",
+    "img": "/categories/TV.jpg"
+  },
+  {
+    "name": "Computer",
+    "img": "/categories/laptop.jpg"
+  },
+  {
+    "name": "Cameras",
+    "img": "/categories/camera.jpg"
+  },
+  {
+    "name": "Watches",
+    "img": "/categories/watch.jpg"
+  },
+  {
+    "name": "Men Shoes",
+    "img": "/categories/menshoes.jpg"
+  },
+  {
+    "name": "Home Appliances",
+    "img": "/categories/refrigerator.jpg"
+  },
+  {
+    "name": "Sport & Outdoor",
+    "img": "/categories/ball.jpg"
+  },
+  {
+    "name": "Automotive",
+    "img": "/categories/bike.jpg"
+  },
+  {
+    "name": "Men Bags",
+    "img": "/categories/bag.jpg"
+  },
+  {
+    "name": "Toys",
+    "img": "/categories/bear.jpg"
+  },
+  {
+    "name": "Pets",
+    "img": "/categories/pet.jpg"
+  },
+  {
+    "name": "Women Clothes",
+    "img": "/categories/womenTshirt.jpg"
+  },
+  {
+    "name": "Moms & Babies",
+    "img": "/categories/xenoi.jpg"
+  },
+  {
+    "name": "Home & Living",
+    "img": "/categories/cook.jpg"
+  },
+  {
+    "name": "Beauty",
+    "img": "/categories/beauty.jpg"
+  },
+  {
+    "name": "Health",
+    "img": "/categories/health.jpg"
+  },
+  {
+    "name": "Women Shoes",
+    "img": "/categories/womenShoes.jpg"
+  },
+  {
+    "name": "Women Bags",
+    "img": "/categories/womenBag.jpg"
+  }
+]
