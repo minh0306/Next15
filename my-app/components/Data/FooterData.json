@@ -1,0 +1,53 @@
+[
+  {
+    "title": "CUSTOMER SERVICE",
+    "listCategory": [
+      { "name": "Help Centre", "link": "" },
+      { "name": "Shopee Blog", "link": "" },
+      { "name": "Shopee Mall", "link": "" },
+      { "name": "How To Buy", "link": "" },
+      { "name": "Payment", "link": "" },
+      { "name": "Shopee Coins", "link": "" },
+      { "name": "Return & Refund", "link": "" },
+      { "name": "Contact Us", "link": "" },
+      { "name": "Warranty Policy", "link": "" }
+    ],
+    "image": null
+  },
+  {
+    "title": "ABOUT SHOPEE",
+    "listCategory": [
+      { "name": "About Us", "link": "" },
+      { "name": "Shopee Careers", "link": "" },
+      { "name": "Shopee Mall", "link": "" },
+      { "name": "Shopee Policies", "link": "" },
+      { "name": "Privacy Policy", "link": "" },
+      { "name": "Shopee Mall", "link": "" },
+      { "name": "Seller Centre", "link": "" },
+      { "name": "Flash Deals", "link": "" },
+      { "name": "Shopee Ambassador Programme", "link": "" },
+      { "name": "Media Contact", "link": "" }
+    ],
+    "image": null
+  },
+  {
+    "title": "PAYMENT",
+    "listCategory": null,
+    "image": "/assets/payment.png"
+  },
+  {
+    "title": "LOGISTICS",
+    "listCategory": null,
+    "image": "/assets/logistic.png"
+  },
+  {
+    "title": "FOLLOW US",
+    "listCategory": [
+      { "name": "Facebook", "link": "" },
+      { "name": "Instagram", "link": "" },
+      { "name": "Shopee Mall", "link": "" },
+      { "name": "LinkedIn", "link": "" }
+    ],
+    "image": null
+  }
+]
