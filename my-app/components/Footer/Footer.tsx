@@ -5,7 +5,7 @@ import InfoData from "../Data/Info.json";
 import { Fragment } from "react";
 const Footer = () => {
   return (
-    <footer className="text-xs w-full h-full flex flex-col py-3 2xl:px-60 md:px-20 px-4 sm:px-8 bg-gray-50 gap-3 text-nowrap">
+    <footer className="text-xs w-full h-full flex flex-col py-3 2xl:px-60 md:px-20 px-4 sm:px-8 bg-gray-50 gap-3 text-nowrap pt-20">
       <div className="w-full">
         <div className="grid grid-cols-5 gap-16">
           {footerData.map((data) =>
@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <div className="flex justify-between py-3  text-gray-400">
+      <div className="flex justify-between py-3  text-gray-400 ">
         <p className="">
           &copy; {new Date().getFullYear()} Your Company. All rights reserved.
         </p>
