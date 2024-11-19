@@ -8,11 +8,11 @@ type BannerSimpleProps = {
 const BannerSimple = ({ props }: { props: BannerSimpleProps }) => {
   if (props && props.length > 1) {
     return (
-      <div className=" flex w-full gap-2">
+      <div className=" grid sm:grid-cols-3 grid-cols-1 w-full gap-2">
         {props.map((item) => (
           <div
             key={item.name}
-            className="img-container border-none rounded-md w-full relative h-[125px]"
+            className="img-container border-none rounded-md w-full relative sm:h-[122px] h-[90px]"
           >
             <Image
               className="object-cover rounded-md"
@@ -20,6 +20,7 @@ const BannerSimple = ({ props }: { props: BannerSimpleProps }) => {
               alt={item.name}
               fill
               quality={100}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         ))}

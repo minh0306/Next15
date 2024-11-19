@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Item from "./Item";
 // import { CategoryProps } from "./type";
 import Data from "@/components/Data/Categories.json";
@@ -10,7 +11,9 @@ const Categories = () => {
       <div className="bg-white w-full flex flex-wrap min-w-full">
         {Data &&
           Data.map((item) => (
-            <Item img={item.img} name={item.name} key={item.name} />
+            <Link href={"/products"} key={item.name}>
+              <Item img={item.img} name={item.name} />
+            </Link>
           ))}
       </div>
     </div>
