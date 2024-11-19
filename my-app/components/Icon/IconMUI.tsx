@@ -6,11 +6,11 @@ import Language from "@mui/icons-material/Language";
 import { FC } from "react";
 
 const iconsMap: { [key: string]: JSX.Element } = {
-  Facebook: <Facebook />,
-  Instagram: <Instagram />,
-  Help: <Help />,
-  Language: <Language />,
-  CircleNotifications: <CircleNotifications />,
+  Facebook: <Facebook fontSize="small" />,
+  Instagram: <Instagram fontSize="small" />,
+  Help: <Help fontSize="small" />,
+  Language: <Language fontSize="small" />,
+  CircleNotifications: <CircleNotifications fontSize="small" />,
 };
 
 interface IconMUIProps {

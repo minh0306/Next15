@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Image from "next/image";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -36,6 +36,7 @@ const Carousel = () => {
       sx={{
         position: "relative",
         width: "100%",
+        height: "100%",
         maxWidth: "full",
         margin: "auto",
       }}
@@ -44,7 +45,7 @@ const Carousel = () => {
         sx={{
           position: "relative",
           width: "100%",
-          height: "300px",
+          height: "100%",
           overflow: "hidden",
           borderRadius: "8px",
         }}
@@ -52,9 +53,10 @@ const Carousel = () => {
         <Image
           src={slideData[currentIndex].img}
           alt={slideData[currentIndex].caption}
-          layout="fill"
-          objectFit="cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           quality={100}
+          style={{ objectFit: "cover" }}
         />
       </Box>
 
