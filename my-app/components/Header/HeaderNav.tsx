@@ -27,7 +27,7 @@ const HeaderNav = () => {
   return (
     <nav className="flex justify-between items-center text-xs">
       {data.map((list, index) => (
-        <div key={index} className=" flex gap-3 md:gap-1 xs:gap-1">
+        <div key={index} className=" flex gap-1 md:gap-2 ">
           {list.map((item) => (
             <div key={item.id} className="flex gap-1 items-center ">
               <>
@@ -48,11 +48,11 @@ const HeaderNav = () => {
           {index === 1 && (
             <>
               {account ? (
-                <button onClick={handleOpen} className="pl-2">
+                <button onClick={handleOpen} className="md:pl-2">
                   Logout
                 </button>
               ) : (
-                <div className="flex gap-2 items-center pl-3">
+                <div className="flex gap-1 md:gap-2 items-center md:pl-3">
                   <Link href={"/auth/signup"}>
                     <div>Sign Up</div>
                   </Link>

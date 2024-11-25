@@ -1,22 +1,27 @@
 import ProductDetails from "@/components/ProductDetail/ProductDetail";
 import ShopInfo from "@/components/ShopInfo/ShopInfo";
 
-const ProductDetailPage = ({ id }: { id: string }) => {
-  //   console.log(id);
-
+const ProductDetailPage = ({ params }: { params: { id: string } }) => {
   const productData = {
+    id: params.id,
     name: "Gấu bông dễ thương",
-    price: "39.000 ₫",
+    price: 39000,
     rating: 4.6,
     reviews: 2000,
-    images: ["/products/bear.jpg", "/products/bear.jpg", "/products/bear.jpg"],
+    imageUrls: [
+      "/products/bear.jpg",
+      "/products/bear.jpg",
+      "/products/bear.jpg",
+    ],
     freeShipping: true,
     returnPolicy: "15-Day Free Return",
     location: "Huyện Ba Vì",
+    description: "Bluetooth 24key control, 5m",
+    discount: 10,
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col py-1 2xl:px-60 md:px-20 px-4 sm:px-8">
+    <div className="w-full min-h-screen flex flex-col py-1  md:px-20 px-4 sm:px-8">
       <div className="bg-white w-full rounded-md  my-8">
         <ProductDetails product={productData} />
       </div>

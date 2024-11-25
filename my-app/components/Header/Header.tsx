@@ -1,5 +1,5 @@
 "use client";
-import Cart from "../Cart/Cart";
+import Cart from "../CartIcon/CartIcon";
 import Logo from "../Logo/Logo";
 import Search from "../SearchBar/Search";
 import HeaderNav from "./HeaderNav";
