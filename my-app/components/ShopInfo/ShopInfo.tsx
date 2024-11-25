@@ -24,7 +24,7 @@ const ShopInfo = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-6 flex-1 px-2 md:px-4">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 lg:gap-6 flex-1 px-2 lg:px-4">
         <div className="flex justify-between">
           <span className="text-gray-500">Rating</span>
           <span className="text-orange-500">117,9k</span>

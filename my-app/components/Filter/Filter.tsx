@@ -12,11 +12,13 @@ const Filter = () => {
   };
 
   return (
-    <div className="flex flex-col gap-2 w-[200px]">
-      <div className="w-full p-4">
-        <h3 className="text-lg font-bold m-2">All Categories</h3>
+    <div className="flex flex-col gap-2  w-44">
+      <div className="w-full px-2 py-4 md:p-4">
+        <h3 className="text-md md:text-lg font-bold m-2 text-nowrap">
+          All Categories
+        </h3>
         <hr />
-        <div className="p-2 flex flex-col gap-3 text-wrap">
+        <div className="p-2 flex flex-col gap-3 text-wrap text-sm md:text-md">
           {data.map((item) => (
             <div key={item.name}>
               <span>{item.name}</span>
@@ -30,7 +32,9 @@ const Filter = () => {
           )}
         </div>
         <div className="filter">
-          <h4 className="text-lg font-semibold m-2">Search Filter</h4>
+          <h4 className="text-md md:text-lg font-semibold m-2">
+            Search Filter
+          </h4>
         </div>
       </div>
     </div>

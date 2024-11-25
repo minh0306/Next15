@@ -3,7 +3,6 @@ import BannerImage from "@/components/Data/BannerIamge.json";
 import BannerSimple from "@/components/BannerSimple/BannerSimple";
 import Categories from "@/components/Categories/Categories";
 import BannerLayout from "@/components/BannerLayout/BannerLayout";
-import ItemList from "@/components/Item/Items";
 
 const bannderSmall = {
   name: "bannerSmall",
@@ -15,6 +14,16 @@ const bannerSmall2 = {
   img: "/assets/cover.jpg",
   link: "",
 };
+// const mockData = Array.from({ length: 20 }, (_, i) => ({
+//   id: i + 1,
+//   title:
+//     "Búp Bê Gấu Biến Hình Dễ Thương 25cm Sang Trọng Đồ Chơi Búp Bê Quà Tặng Sinh Nhật ",
+//   image: `/products/bear.jpg`,
+//   discount: 57,
+//   discountPrice: 2000,
+//   price: 13000,
+//   // tag:[]
+// }));
 export default function Home() {
   return (
     // <div className=" flex-1 grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]"></div>
@@ -34,9 +43,7 @@ export default function Home() {
       <section>
         <Categories />
       </section>
-      <section>
-        <ItemList />
-      </section>
+      <section>{/* <ItemList data={mockData} /> */}</section>
     </main>
   );
 }

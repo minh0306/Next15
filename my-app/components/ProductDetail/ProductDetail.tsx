@@ -3,11 +3,26 @@ import { Button } from "@mui/material";
 import { Rating } from "@mui/material";
 import { useState } from "react";
 import Image from "next/image";
-const ProductDetails = ({ product }: { product: any }) => {
+import { useCart } from "@/contexts/CartContext";
+import { Item } from "@/services/productService";
+const ProductDetails = ({ product }: { product: Item }) => {
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (increment: boolean) => {
     setQuantity((prev) => (increment ? prev + 1 : Math.max(1, prev - 1)));
+  };
+
+  const handleAddToCart = () => {
+    console.log(product, quantity);
+    const item = {
+      ...product,
+      quantity: quantity,
+      image: product.imageUrls[0],
+      description: "Bluetooth 24key control, 5m",
+      discount: 10,
+    };
+    addToCart(item);
   };
 
   return (
@@ -15,7 +30,7 @@ const ProductDetails = ({ product }: { product: any }) => {
       {/* Left: Product Images */}
       <div className="w-full ">
         <Image
-          src={product.images[0]}
+          src={product.imageUrls[0]}
           alt={product.name}
           className="w-full rounded-lg"
           width={400}
@@ -23,7 +38,7 @@ const ProductDetails = ({ product }: { product: any }) => {
           quality={99}
         />
         <div className="flex space-x-2 mt-2">
-          {product.images.map((image: string, index: number) => (
+          {product.imageUrls.map((image: string, index: number) => (
             <Image
               key={index}
               src={image}
@@ -48,7 +63,7 @@ const ProductDetails = ({ product }: { product: any }) => {
         </div>
 
         {/* Price */}
-        <div className="text-red-600 text-3xl font-bold">{product.price}</div>
+        <div className="text-red-600 text-3xl font-bold">{product.price} đ</div>
 
         {/* Free Shipping */}
         {product.freeShipping && (
@@ -77,7 +92,12 @@ const ProductDetails = ({ product }: { product: any }) => {
 
         {/* Buttons */}
         <div className="flex space-x-4">
-          <Button variant="contained" color="primary" fullWidth>
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={handleAddToCart}
+          >
             Add to Cart
           </Button>
           <Button variant="outlined" color="secondary" fullWidth>
