@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import ReactQueryProvider from "@/libs/ReactQueryProvider";
 import AuthProvider from "@/contexts/AuthProvider";
 import { CartProvider } from "@/contexts/CartContext";
+import { QueryParamsProvider } from "@/contexts/QueryParamsContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,9 +37,11 @@ export default function RootLayout({
         <AuthProvider>
           <ReactQueryProvider>
             <CartProvider>
-              <Header />
-              {children}
-              <Footer />
+              <QueryParamsProvider>
+                <Header />
+                {children}
+                <Footer />
+              </QueryParamsProvider>
             </CartProvider>
           </ReactQueryProvider>
         </AuthProvider>

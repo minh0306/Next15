@@ -1,12 +1,12 @@
-export type BaseQueryParams = Partial<{
+export type BaseQueryParams = {
   page: number;
   itemPerPage: number;
   orderBy: string;
   searchBy: string;
-  orderByDirection: "asc" | "desc";
+  orderByDirection: string;
   search: string;
   categoryCode: string;
-}>;
+};
 
 export enum ActionType {
   Add = "Add",

@@ -54,9 +54,12 @@ const CartPage = () => {
 
               {/* Product Details */}
               <div className="flex-grow lg:flex gap-6 pr-16 pl-4">
-                <h2 className="text-lg font-semibold truncate md:text-wrap w-60">
-                  {item.name}
-                </h2>
+                <div className="flex flex-col">
+                  <h2 className="text-lg font-semibold truncate md:text-wrap w-60">
+                    {item.name}
+                  </h2>
+                  <p className="text-sm text-gray-500">{item.id}</p>
+                </div>
                 {/* <p className="text-sm text-gray-500">{item.variations}</p> */}
                 <p className="text-sm text-gray-500">{item.description}</p>
                 <p className="text-sm text-gray-400 line-through">
