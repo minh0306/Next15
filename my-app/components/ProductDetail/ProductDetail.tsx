@@ -3,28 +3,40 @@ import { Button } from "@mui/material";
 import { Rating } from "@mui/material";
 import { useState } from "react";
 import Image from "next/image";
-import { useCart } from "@/contexts/CartContext";
-import { Item } from "@/services/productService";
-const ProductDetails = ({ product }: { product: Item }) => {
-  const { addToCart } = useCart();
+// import { useCart } from "@/contexts/CartContext";
+import { fetchProductDetail, Item } from "@/services/productService";
+import { useQuery } from "@tanstack/react-query";
+const ProductDetails = ({ id }: { id: string }) => {
+  const {
+    data: product,
+    isLoading,
+    isError,
+  } = useQuery<Item>({
+    queryKey: ["product"],
+    queryFn: () => fetchProductDetail(id),
+    ...{ keepPreviousData: true },
+  });
+  // const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (increment: boolean) => {
     setQuantity((prev) => (increment ? prev + 1 : Math.max(1, prev - 1)));
   };
+  console.log(42, product);
 
-  const handleAddToCart = () => {
-    console.log(product, quantity);
-    const item = {
-      ...product,
-      quantity: quantity,
-      image: product.imageUrls[0],
-      description: "Bluetooth 24key control, 5m",
-      discount: 10,
-    };
-    addToCart(item);
-  };
-
+  // const handleAddToCart = () => {
+  //   const item = {
+  //     ...product,
+  //     quantity: quantity,
+  //     image: product?.imageUrls[0],
+  //     description: "Bluetooth 24key control, 5m",
+  //     discount: 10,
+  //   };
+  //    addToCart(item);
+  // };
+  if (!product || isLoading || isError) {
+    return <p>Something wwrong</p>;
+  }
   return (
     <div className="max-w-screen-lg mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Left: Product Images */}
@@ -96,7 +108,7 @@ const ProductDetails = ({ product }: { product: Item }) => {
             variant="contained"
             color="primary"
             fullWidth
-            onClick={handleAddToCart}
+            // onClick={handleAddToCart}
           >
             Add to Cart
           </Button>

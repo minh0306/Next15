@@ -2,11 +2,19 @@
 import { useEffect, useState } from "react";
 import MenuData from "../Data/TopMenuSearch.json";
 import SearchIcon from "@mui/icons-material/Search";
+import { useParamsContext } from "@/contexts/QueryParamsContext";
 
 const Search = () => {
+  const { params, updateParams } = useParamsContext();
+
   const [visibleItems, setVisibleItems] = useState(MenuData.length);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    updateParams({ ...params, search: value });
+  };
+
   useEffect(() => {
-    // Hàm cập nhật số lượng item dựa trên kích thước màn hình
     const updateVisibleItems = () => {
       const width = window.innerWidth;
       if (width < 640) {
@@ -18,13 +26,12 @@ const Search = () => {
       } else if (width < 1200) {
         setVisibleItems(5);
       } else {
-        setVisibleItems(MenuData.length); // Màn hình lớn, hiển thị tất cả
+        setVisibleItems(MenuData.length);
       }
     };
     updateVisibleItems();
     window.addEventListener("resize", updateVisibleItems);
 
-    // Dọn dẹp sự kiện khi component unmount
     return () => {
       window.removeEventListener("resize", updateVisibleItems);
     };
@@ -33,9 +40,10 @@ const Search = () => {
     <div className="w-full flex flex-col gap-2">
       <div className="flex bg-white rounded-md p-1 h-10 mt-2">
         <input
-          className="text-sm w-full px-4"
+          className="text-sm w-full px-4 focus:outline-none"
           placeholder="Search for item"
           id="search-bar"
+          onChange={handleSearch}
         />
         <div className=" bg-yellow-300 rounded-md w-20 p-2 items-center justify-center flex">
           <SearchIcon />

@@ -5,27 +5,27 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import { useParamsContext } from "@/contexts/QueryParamsContext";
 const Products = () => {
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   const [active, setActive] = useState("popular");
-  const itemPerPage = 6;
+  // const itemPerPage = 6;
+  const { params, updateParams } = useParamsContext();
   const { data, isLoading, isError } = useQuery<ProductListResponse>({
-    queryKey: ["products", page],
-    queryFn: () => fetchProducts({ page, itemPerPage }),
+    queryKey: ["products", params],
+    queryFn: () => fetchProducts(params),
     ...{ keepPreviousData: true },
   });
-  console.log(44, data);
   const activeCSS = " bg-yellow-300 text-white px-1 md:px-2 py-1";
   const inActiveCss = "bg-white px-2 py-1";
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Failed to fetch data.</div>;
-  // page: number;
-  // itemPerPage: number;
-  // orderBy: string;
-  // searchBy: string;
-  // orderByDirection: "asc" | "desc";
-  // search: string;
-  // categoryCode: string;
+  const handlePageChange = (value: number) => {
+    if (params.page + value > 0) {
+      updateParams({ ...params, page: params.page + value });
+    }
+  };
+
   return (
     <main>
       <div className="sort-pagination flex p-2 justify-between bg-[#00000008] items-center my-4">
@@ -60,18 +60,18 @@ const Products = () => {
         </div>
         <div className="pagination flex items-center text-xs text-nowrap px-1">
           <span className="md:mr-4 mr-1">
-            Page {page} /{" "}
-            {data?.totalItem && Math.ceil(data?.totalItem / itemPerPage)}
+            Page {params.page} /{" "}
+            {data?.totalItem && Math.ceil(data?.totalItem / params.itemPerPage)}
           </span>
           <button
             className={
-              page !== 1
+              params.page !== 1
                 ? " p-1 rounded-sm border border-gray-200 bg-white "
                 : "text-gray-400" +
                   " p-1 rounded-sm border border-gray-200 bg-white "
             }
-            disabled={page === 1}
-            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+            disabled={params.page === 1}
+            onClick={() => handlePageChange(-1)}
           >
             <NavigateBeforeIcon fontSize="small" />
           </button>
@@ -83,7 +83,7 @@ const Products = () => {
                   " p-1 rounded-sm border border-gray-200 bg-white "
             }
             disabled={!data?.hasNextPage}
-            onClick={() => setPage((prev) => prev + 1)}
+            onClick={() => handlePageChange(1)}
           >
             <NavigateNextIcon fontSize="small" />
           </button>
