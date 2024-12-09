@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "NEXT15/my-app/package.json",
+      "src": "my-app/package.json",
       "use": "@vercel/next"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "NEXT15/my-app/$1"
+      "dest": "my-app/$1"
     }
   ]
 }
