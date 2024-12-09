@@ -1,0 +1,19 @@
+[
+  {
+    "name": "sale",
+    "img": "/assets/banner3.jpg",
+    "link": ""
+  },
+
+  {
+    "name": "sale1",
+    "img": "/assets/banner4.jpg",
+    "link": ""
+  },
+
+  {
+    "name": "sale2",
+    "img": "/assets/banner1.jpg",
+    "link": ""
+  }
+]
