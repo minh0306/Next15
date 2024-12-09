@@ -7,6 +7,7 @@ import schema from "./schema";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { signUp } from "@/services/authService";
+import { redirect } from "next/navigation";
 export type FormData = {
   phone: string;
   name?: string;
@@ -39,7 +40,7 @@ const SignUp = () => {
     try {
       await signUp(data);
     } catch (error) {
-      setError(error as string);
+      if (typeof error == "string") setError(error as string);
     }
   };
 

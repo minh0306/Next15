@@ -6,6 +6,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useCart } from "@/contexts/CartContext";
 const CartPage = () => {
   const { cart, updateQuantity, removeFromCart } = useCart();
+  console.log(cart);
 
   const handleQuantityChange = (
     id: string,

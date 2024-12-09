@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const HeaderNav = () => {
   const auth = useAuth();
-  const [account, setAccount] = useState({});
+  const [account, setAccount] = useState<string | null>(null);
   const { open, handleOpen, handleClose } = useLogoutConfirmation();
   const handleLogout = () => {
     auth?.logOut();
