@@ -3,7 +3,7 @@ import { Button } from "@mui/material";
 import { Rating } from "@mui/material";
 import { useState } from "react";
 import Image from "next/image";
-// import { useCart } from "@/contexts/CartContext";
+import { useCart } from "@/contexts/CartContext";
 import { fetchProductDetail, Item } from "@/services/productService";
 import { useQuery } from "@tanstack/react-query";
 const ProductDetails = ({ id }: { id: string }) => {
@@ -16,7 +16,7 @@ const ProductDetails = ({ id }: { id: string }) => {
     queryFn: () => fetchProductDetail(id),
     ...{ keepPreviousData: true },
   });
-  // const { addToCart } = useCart();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (increment: boolean) => {
@@ -24,16 +24,16 @@ const ProductDetails = ({ id }: { id: string }) => {
   };
   console.log(42, product);
 
-  // const handleAddToCart = () => {
-  //   const item = {
-  //     ...product,
-  //     quantity: quantity,
-  //     image: product?.imageUrls[0],
-  //     description: "Bluetooth 24key control, 5m",
-  //     discount: 10,
-  //   };
-  //    addToCart(item);
-  // };
+  const handleAddToCart = () => {
+    const item = {
+      ...product,
+      quantity: quantity,
+      image: product?.imageUrls[0],
+      description: "Bluetooth 24key control, 5m",
+      discount: 10,
+    };
+    addToCart(item);
+  };
   if (!product || isLoading || isError) {
     return <p>Something wwrong</p>;
   }
@@ -108,7 +108,7 @@ const ProductDetails = ({ id }: { id: string }) => {
             variant="contained"
             color="primary"
             fullWidth
-            // onClick={handleAddToCart}
+            onClick={handleAddToCart}
           >
             Add to Cart
           </Button>
